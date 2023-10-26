@@ -22,13 +22,13 @@ void print_memory(void *start_addr, void *end_addr) {
         // Loop to print 16 bytes as hex values; gives a view of raw memory data
         for (int i = 0; i < 16; i++) {
             if (start + i < end) {
-                printf("%02x", *(start + i));
+                printf("%02x ", *(start + i));
             } else {
-                printf("  ");
+                printf("   ");
             }
         }
 
-        printf("  ");
+        printf(" ");
 
         // Loop to print 16 bytes as ASCII characters; helps in identifying printable data in memory
         for (int i = 0; i < 16; i++) {
@@ -59,5 +59,5 @@ void print_call_stack() {
     void *bottom_of_stack = (void *) environ[0];
 
     // Call print_memory to display stack content; provides a snapshot of the call stack
-    print_memory(bottom_of_stack, top_of_stack);
+    print_memory(top_of_stack, bottom_of_stack);
 }
